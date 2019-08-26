@@ -6,3 +6,4 @@ es
 *.log
 .DS_Store
 .vscode
+src/images

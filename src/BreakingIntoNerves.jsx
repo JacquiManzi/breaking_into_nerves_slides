@@ -50,6 +50,7 @@ const images = {
     thermostat: require('./images/thermostat.png'),
     test: require('./images/test.png'),
     camera: require('./images/video-camera.svg'),
+    muxConfettiRed: require('./images/confetti_red.png'),
 };
 
 preloader(images);
@@ -109,9 +110,9 @@ export default class BreakingIntoNerves extends Component {
                         Using your Elixir knowledge to create your first embedded Nerves project
                     </Heading>
                 </Slide>
-                <Slide transition={['fade']} bgColor="black" bgImage={images.muxConfetti.replace('/', '')} bgRepeat="repeat" bgDarken={0.75}>
+                <Slide transition={['fade']} bgColor="black" bgImage={images.muxConfettiRed.replace('/', '')} bgRepeat="repeat" bgDarken={0.75}>
                     <Heading size={1} lineHeight="1.3" textColor="white" bgColor="#00000078">Jacqueline Manzi</Heading>
-                    <Heading size={4} lineHeight="1.5" textColor="#42ff71" bgColor="#00000078">Elixir / JavaScript / Web</Heading>
+                    <Heading size={4} lineHeight="1.5" textColor="#42ff71" bgColor="#00000078">Elixir <span style={{color: 'white'}}>/</span> JavaScript <span style={{color: 'white'}}>/</span> Web</Heading>
                     <Image margin="-6.5rem auto" src={images.mux.replace('/', '')} width="600px" />
                 </Slide>
                 <Slide
