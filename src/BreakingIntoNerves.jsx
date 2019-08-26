@@ -191,22 +191,33 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['slide', 'zoom']}
                     transitionOut={['slide', 'fade']}
                 >
-                    <Heading size={1}># Pick a project</Heading>
+                    <Heading size={2} ># Pick a project</Heading>
                     <Heading size={5} margin="20px 0" textColor="white">Start simple and be realistic</Heading>
                     <Image margin="10rem auto" src={images.camera.replace('/', '')} width="500x" />
                 </Slide>
-                <Slide>
-                    <h3># Choosing hardware</h3>
-                    <div style={{color: '#fff', margin: '20px 0 0 70px'}}>Currently (listed) Supported Hardware</div>
-                    <div style={{color: '#fff', fontSize: '0.8em', margin: '20px 0 0 100px', lineHeight: '1.5'}}>
-                        <div>/ Raspberry Pi A+, B, B+</div>
-                        <div>/ Raspberry Pi Zero and Zero W</div>
-                        <div>/ Raspberry Pi 2</div>
-                        <div>/ Raspberry Pi 3 B, B+</div>
-                        <div>/ BeagleBone Black, Green, Green Wireless</div>
-                        <div>/ PocketBeagle</div>
-                        <div>/ Generic x86_64</div>
-                    </div>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading size={2} textAlign="left" lineHeight={1.5}># Choosing hardware</Heading>
+                    <Heading size={5}  margin="20px 0 0 120px" textColor="white" textAlign="left">Currently (listed) supported hardware</Heading>
+                    <Layout style={{color: '#fff', fontSize: '0.8em', margin: '0 0 0 118px', lineHeight: '1.5'}}>
+                        <List margin="2rem">
+                            <Layout><Text textColor="secondary" lineHeight="0.9" margin="0 20px 0 0">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi A+, B, B+</Text></Layout>
+                            <br />
+                            <Layout><Text margin="0 20px 0 0" textAlign="left" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi Zero and Zero W</Text></Layout>
+                            <br/>
+                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 2</Text></Layout>
+                            <br/>
+                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></Layout>
+                            <br/>
+                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></Layout>
+                            <br/>
+                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></Layout>
+                            <br/>
+                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Generic x86_64</Text></Layout>
+                        </List>
+                    </Layout>
                 </Slide>
                 <Slide>
                     <Heading># Standard Raspberry Pi (A+, B, B+ 2, 3, 4)</Heading>
