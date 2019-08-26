@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Presentation from './example/src';
+import BreakingIntoNerves from './src/BreakingIntoNerves.jsx';
 
-render(<Presentation />, document.getElementById('root'));
+render(<BreakingIntoNerves />, document.getElementById('root'));

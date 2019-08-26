@@ -17,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test:  /\.(js|jsx)$/,
         include: ['index.js', 'src', 'example/assets', 'example/src'].map(
           name => path.resolve(__dirname, name)
         ),
@@ -29,22 +29,22 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        include: path.join(__dirname, 'example/assets'),
+        include: path.join(__dirname, 'src/images'),
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
       },
       {
         test: /\.png$/,
-        include: path.join(__dirname, 'example/assets'),
+        include: path.join(__dirname, 'src/images'),
         loader: 'url-loader?mimetype=image/png'
       },
       {
         test: /\.jpg$/,
-        include: path.join(__dirname, 'example/assets'),
+        include: path.join(__dirname, 'src/images'),
         loader: 'url-loader?mimetype=image/jpg'
       },
       {
         test: /\.gif$/,
-        include: path.join(__dirname, 'example/assets'),
+        include: path.join(__dirname, 'src/images'),
         loader: 'url-loader?mimetype=image/gif'
       }
     ]

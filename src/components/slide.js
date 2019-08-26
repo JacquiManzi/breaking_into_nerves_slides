@@ -134,7 +134,7 @@ class Slide extends React.PureComponent {
 }
 
 Slide.defaultProps = {
-  align: 'center center',
+  align: '',
   presenterStyle: {},
   style: {},
   viewerScaleMode: false

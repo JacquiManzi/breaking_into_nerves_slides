@@ -45,7 +45,7 @@ const _CombineBlockQuote = ({ children }) => (
 _CombineBlockQuote.propTypes = { children: PropTypes.node };
 
 const _CodePane = ({ language, code }) => (
-  <CodePane lang={language} source={code} />
+  <CodePane lang={language} source={hack} />
 );
 _CodePane.propTypes = { code: PropTypes.string, language: PropTypes.string };
 

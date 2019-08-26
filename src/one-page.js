@@ -79,7 +79,7 @@ const loadSpectacleScript = () => {
           'react'
         ],
         plugins: ['syntax-object-rest-spread', 'syntax-class-properties']
-      }).code;
+      }).hack;
 
       eval(output); // eslint-disable-line no-eval
 

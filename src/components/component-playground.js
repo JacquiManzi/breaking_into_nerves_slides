@@ -149,15 +149,15 @@ class ComponentPlayground extends Component {
     this.syncCode = this.syncCode.bind(this);
 
     this.state = {
-      code: (this.props.code || defaultCode).trim(),
+      code: (this.props.hack || defaultCode).trim(),
       scope: getEnhancedScope(this.props.scope)
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const updatedState = {};
-    if (nextProps.code !== prevState.code) {
-      const code = (nextProps.code || defaultCode).trim();
+    if (nextProps.hack !== prevState.hack) {
+      const code = (nextProps.hack || defaultCode).trim();
       updatedState.code = code;
     }
     if (nextProps.scope !== prevState.scope) {
@@ -168,7 +168,7 @@ class ComponentPlayground extends Component {
   }
 
   componentDidMount() {
-    localStorage.setItem(STORAGE_KEY, this.state.code);
+    localStorage.setItem(STORAGE_KEY, this.state.hack);
     window.addEventListener('storage', this.syncCode);
   }
 
@@ -181,8 +181,8 @@ class ComponentPlayground extends Component {
   }
 
   playgroundSetState() {
-    if (this.props.code) {
-      const code = (this.props.code || defaultCode).trim();
+    if (this.props.hack) {
+      const code = (this.props.hack || defaultCode).trim();
       this.setState({ code });
     }
     if (this.props.scope) {
@@ -238,7 +238,7 @@ class ComponentPlayground extends Component {
     return (
       <PlaygroundProvider
         mountStylesheet={false}
-        code={this.state.code}
+        code={this.state.hack}
         scope={this.state.scope}
         transformCode={transformCode}
         noInline

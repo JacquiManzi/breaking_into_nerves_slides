@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test:  /\.(js|jsx)$/,
         include: ['index.js', 'src', 'example/assets', 'example/src'].map(
           name => path.resolve(__dirname, name)
         ),

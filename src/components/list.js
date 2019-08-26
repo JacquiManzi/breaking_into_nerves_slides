@@ -8,7 +8,10 @@ export const bulletStyles = {
   classicCheck: '\\2713',
   greenCheck: '\\2705',
   arrow: '\\219d',
-  cross: '\\274C'
+  cross: '\\274C',
+  slash: '\\002F',
+  jera: '\\16C3',
+  gt: '\\003E'
 };
 
 export const getBulletStyle = (bulletStyle, isListItemStyle) => {
@@ -20,11 +23,12 @@ export const getBulletStyle = (bulletStyle, isListItemStyle) => {
       `${isListItemStyle ? '&' : 'li'}::before {
           content: '${content}' ${isListItemStyle ? '!important' : ''};
           display: inline-block;
-          margin-right: 40px;
+          margin: 0 30px 9px 0;
           width: 20px;
-          font-size: 20px;
+          font-size: 40px;
           text-align: center;
           vertical-align: middle;
+          color: #42ff71;
         }`
     ];
   }

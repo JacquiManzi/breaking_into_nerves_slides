@@ -311,7 +311,7 @@ export default class Presentation extends Component {
             </Fill>
           </Layout>
           <Notes>
-            Use <code>layout</code> to <code>fill</code> or <code>fit</code>{' '}
+            Use <hack>layout</code> to <code>fill</hack> or <hack>fit</code>{' '}
             your content
           </Notes>
         </Slide>

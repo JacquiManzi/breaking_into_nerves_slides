@@ -6,8 +6,9 @@ import prismDark from './prism.dark';
 const defaultColors = {
   primary: '#f9c300',
   secondary: 'black',
-  tertiary: 'white',
-  quaternary: 'white'
+  tertiary: '#42ff71',
+  quaternary: '#42ff71',
+  hack: '#42ff71'
 };
 
 const defaultFonts = {
@@ -39,7 +40,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         fontFamily: fonts.primary,
         fontWeight: 'normal',
         fontSize: '2em',
-        color: colors.secondary,
+        color: colors.hack,
         overflow: 'hidden'
       },
       '_:-moz-tree-row(hover), .spectacle-deck': {
@@ -275,7 +276,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '7.05rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: 0,
           zoom: 1
         },
@@ -284,7 +285,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '5.88rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: 0
         },
         h3: {
@@ -292,7 +293,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '4.9rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h4: {
@@ -300,7 +301,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '3.82rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h5: {
@@ -308,7 +309,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '3.19rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h6: {
@@ -316,7 +317,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '2.66rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         }
       },

@@ -19,7 +19,7 @@ export default class Code extends Component {
   }
   render() {
     const styles = [
-      this.context.styles.components.code,
+      this.context.styles.components.hack,
       getStyles.call(this),
       this.props.style
     ];

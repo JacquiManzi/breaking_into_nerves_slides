@@ -216,7 +216,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '7.05rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: 0
         },
         h2: {
@@ -224,7 +224,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '5.88rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: 0
         },
         h3: {
@@ -232,7 +232,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '4.9rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h4: {
@@ -240,7 +240,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '3.82rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h5: {
@@ -248,7 +248,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '3.19rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         },
         h6: {
@@ -256,7 +256,7 @@ const print = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           fontSize: '2.66rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
-          fontWeight: 'bold',
+          fontWeight: '400',
           margin: '0.5rem auto'
         }
       },
