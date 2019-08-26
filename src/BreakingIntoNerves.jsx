@@ -33,6 +33,7 @@ import Cite from './components/cite';
 import preloader from './utils/preloader';
 import createTheme from './themes/default';
 import Interactive from '../example/assets/interactive';
+import Terminal from "spectacle-terminal";
 
 require('normalize.css');
 
@@ -51,6 +52,9 @@ const images = {
     test: require('./images/test.png'),
     camera: require('./images/video-camera.svg'),
     muxConfettiRed: require('./images/confetti_red.png'),
+    raspberrypi: require('./images/raspberrypi.svg'),
+    beaglebone: require('./images/beaglebone.svg'),
+    raspberrypiLogo: require('./images/Raspberry_Pi_Logo.png'),
 };
 
 preloader(images);
@@ -126,15 +130,11 @@ export default class BreakingIntoNerves extends Component {
                         <List margin="2rem 5.5rem">
                             <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Specialized device for one or few specific purposes</Text></Layout>
                             <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources</Text></Layout>
+                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources and Low power consumption</Text></Layout>
                             <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Low power consumption</Text></Layout>
+                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size and rugged operating ranges</Text></Layout>
                             <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size</Text></Layout>
-                            <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Rugged operating ranges</Text></Layout>
-                            <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Low per-unit cost</Text></Layout>
+                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">(Typically) low per-unit cost</Text></Layout>
                         </List>
                         <Layout>
                             <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="120px" />
@@ -204,66 +204,112 @@ export default class BreakingIntoNerves extends Component {
                     <Heading size={5}  margin="20px 0 0 120px" textColor="white" textAlign="left">Currently (listed) supported hardware</Heading>
                     <Layout style={{color: '#fff', fontSize: '0.8em', margin: '0 0 0 118px', lineHeight: '1.5'}}>
                         <List margin="2rem">
-                            <Layout><Text textColor="secondary" lineHeight="0.9" margin="0 20px 0 0">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi A+, B, B+</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text textColor="secondary" lineHeight="0.9" margin="0 20px 0 0">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi A+, B, B+</Text></div></Appear>
                             <br />
-                            <Layout><Text margin="0 20px 0 0" textAlign="left" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi Zero and Zero W</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textAlign="left" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi Zero and Zero W</Text></div></Appear>
                             <br/>
-                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 2</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 2</Text></div></Appear>
                             <br/>
-                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></div></Appear>
                             <br/>
-                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></div></Appear>
                             <br/>
-                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></div></Appear>
                             <br/>
-                            <Layout><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Generic x86_64</Text></Layout>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Generic x86_64</Text></div></Appear>
                         </List>
                     </Layout>
                 </Slide>
-                <Slide>
-                    <Heading># Standard Raspberry Pi (A+, B, B+ 2, 3, 4)</Heading>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading size={2} style={{fontWeight: '400'}}># Standard Raspberry Pi </Heading>
+                    <Image margin="10rem auto" src={images.raspberrypi.replace('/', '')} width="600px" />
                 </Slide>
-                <Slide>
-                    <Heading># Raspberry Zero</Heading>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading size={2} style={{fontWeight: '400'}}># Standard BeagleBone</Heading>
+                    <Image margin="10rem auto" src={images.beaglebone.replace('/', '')} width="600px" />
                 </Slide>
-                <Slide>
-                    <Heading># BeagleBone (Black, Green, Green Wireless)</Heading>
-                </Slide>
-                <Slide>
-                    <Heading># PocketBeagle</Heading>
-                </Slide>
-                <Slide>
-                    <h3># Easiest Option = Raspberry Pi B+</h3>
-                    <div style={{display: 'flex', justifyContent: 'space-evenly', lineHeight: '1.8'}}>
-                        <Image style={{}} height="370px" width="320px" src="images/Raspberry_Pi_Logo.svg" />
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading size={2} fit style={{fontWeight: '400'}}># Easiest Option = Raspberry Pi 3 B+</Heading>
+                    <Layout style={{alignItems: 'center', justifyContent: 'space-evenly'}}>
+                        <Image margin="10rem 0" src={images.raspberrypiLogo.replace('/', '')} width="300px" />
                         <div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ 4 USB 2.0 ports</div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ WIFI and Bluetooth</div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ Ethernet port</div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ HDMI</div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ CSI camera port (for Pi camera)</div>
-                            <div style={{color: '#fff', fontSize: '0.8em'}}>/ $35</div>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> 4 USB 2.0 ports</Text>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> WIFI and Bluetooth</Text>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> Ethernet port</Text>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> HDMI</Text>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> CSI camera port (for Pi camera)</Text>
+                            <Text margin="20px 10px" textAlign="left" textColor="white"> $35</Text>
                         </div>
-                    </div>
+                    </Layout>
+                </Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading size={2} fit style={{fontWeight: '400'}}># Ok we've got our gear, now what?</Heading>
+                    <Layout style={{alignItems: 'flex-start', justifyContent: 'space-evenly', margin: '50px 0'}}>
+                        <List>
+                            <ListItem bulletStyle="classicCheck" margin="20px 10px" textColor="white">Raspberry Pi</ListItem>
+                            <ListItem bulletStyle="classicCheck" margin="20px 10px" textColor="white">Camera</ListItem>
+                            <ListItem bulletStyle="classicCheck" margin="20px 10px" textColor="white">SD card</ListItem>
+                            <ListItem bulletStyle="classicCheck" margin="20px 10px" textColor="white">Power Supply</ListItem>
+                            <ListItem bulletStyle="classicCheck" margin="20px 10px" textColor="white">Ethernet cable</ListItem>
+                        </List>
+                    </Layout>
+                </Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Heading fit style={{fontWeight: '400'}} lineHeight={1.2}># Install Nerves on your computer (host)</Heading>
+                    <Text textAlign="left" textColor="white" margin="0 0 0 70px"><Link href="https://hexdocs.pm/nerves/installation.html">https://hexdocs.pm/nerves/installation.html</Link></Text>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <List margin="2rem 5.5rem">
+                        <Layout>
+                            <div>
+                                <Text margin="20px 10px" textAlign="left" textColor="ternary" style={{fontSize: '2em'}}>Nerves requires Erlang, Elixir, and a few tools for packaging firmware images.</Text>
+                            </div>
+                        </Layout>
+                    </List>
                 </Slide>
                 <Slide>
-                    <h3># Ok we've got our gear, now what?</h3>
-                    <div style={{display: 'flex'}}>
-                        <Image src="images/rp.svg" width="366px" height="205px" />
-                        <Image src="images/cam.svg" width="312px" height="112px" />
-                        <Image src="images/sd.svg" width="80px" height="80px" />
-                    </div>
-                </Slide>
-                <Slide>
-                    <Heading># Install Nerves on your computer (host)</Heading>
-                    <div>go here: https://hexdocs.pm/nerves/installation.html</div>
-                    Nerves requires a number of programs on your system to work. These include Erlang, Elixir, and a few tools for packaging firmware images.
-                    I installed on both Ubuntu and MacOs using the instructions provided and had no issues
-                    (slightly more installation for Linux)
-                </Slide>
-                <Slide>
-                    <Heading># Create a new Nerves app</Heading>
-                    <div>mix nerves.new hello_nerves</div>
+                    <Terminal isMaximized title="Creating a new Nerves app" output={[
+                        "mix nerves.new hello_nerves",
+                        <div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/config/config.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/config/target.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/lib/hello_nerves.ex</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/lib/hello_nerves/application.ex</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/test/test_helper.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/test/hello_nerves_test.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/rel/vm.args.eex</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/rootfs_overlay/etc/iex.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/.gitignore</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/.formatter.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/mix.exs</div>
+                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> hello_nerves/README.md</div>
+                            <br/>
+                            <div style={{color: '#42ff71'}}>Fetch and install dependencies? [Yn]</div>
+                        </div>,
+                        "Y",
+                        <div>
+                            <div>* running mix deps.get</div>
+                            <div>Your Nerves project was created successfully.</div>
+                        </div>
+                    ]}
+                    />
                 </Slide>
                 <Slide>
                     <Heading># Configure for your device (target)</Heading>
