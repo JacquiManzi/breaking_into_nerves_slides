@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'react-emotion';
 
+import CodeSlide from 'spectacle-code-slide';
+import 'prismjs';
+
 import Deck from './components/deck';
 import Slide from './components/slide';
 import Heading from './components/heading';
@@ -30,12 +33,18 @@ import ComponentPlayground from './components/component-playground';
 import GoToAction from './components/go-to-action';
 import Cite from './components/cite';
 
+
 import preloader from './utils/preloader';
 import createTheme from './themes/default';
 import Interactive from '../example/assets/interactive';
 import Terminal from "spectacle-terminal";
 
+require('prismjs/components/prism-markup-templating');
+require('prismjs/components/prism-elixir.js');
+require('./assets/prism-tomorrow.css');
 require('normalize.css');
+
+
 
 const images = {
     mux: require('./images/mux.png'),
@@ -62,7 +71,8 @@ preloader(images);
 const theme = createTheme({
     primary: '#000',
     secondary: '#42ff71',
-    ternary: '#a2b0ff'
+    ternary: '#a2b0ff',
+    background: '#2B2B2B'
 },{
     primary: 'IBM Plex Mono',
     secondary: {
@@ -212,6 +222,8 @@ export default class BreakingIntoNerves extends Component {
                             <br/>
                             <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></div></Appear>
                             <br/>
+                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 4 B</Text></div></Appear>
+                            <br/>
                             <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></div></Appear>
                             <br/>
                             <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></div></Appear>
@@ -311,24 +323,62 @@ export default class BreakingIntoNerves extends Component {
                     ]}
                     />
                 </Slide>
-                <Slide>
-                    <Heading># Configure for your device (target)</Heading>
+                <Slide style={{fontSize: '1.2em'}}>
+                    <Heading># Configure your target for SSH</Heading>
+                    <div>ssh pi@nerves.local</div>
+                    <CodeSlide
+                        bgColor="background"
+                        transition={[]}
+                        showLineNumbers={true}
+                        lang="elixir"
+                        code={require('raw-loader!./assets/ssh.example')}
+                        ranges={[
+                            { loc: [17, 43], title: 'config/target.exs - Load your SSH keys', note: '' }
+                        ]}
+                    />
+                </Slide>
+                <Slide style={{fontSize: '1.2em'}}>
+                    <Heading># Configure your target for SSH</Heading>
+                    <div>ssh pi@nerves.local</div>
+                    <CodeSlide
+                        bgColor="#2B2B2B"
+                        transition={[]}
+                        lang="elixir"
+                        code={require('raw-loader!./assets/ssh.example')}
+                        ranges={[
+                            { loc: [17, 43], title: 'config/target.exs - Load your SSH keys', note: '' }
+                        ]}
+                    />
                 </Slide>
                 <Slide>
-                    <Heading># SSH Configuration</Heading>
+                    <Terminal isMaximized title="Prepare your app for your device" output={[
+                        "mix firmware",
+                        <div>
+                            <div style={{color: '#42ff71'}}>You should now pick a target. See <span style={{color: '#0084E7'}}><a href="https://hexdocs.pm/nerves/targets.html#content">https://hexdocs.pm/nerves/targets.html#content</a></span></div>
+                            <div style={{color: '#42ff71'}}>for supported targets. If your target is on the list, set `MIX_TARGET` to its tag name:</div>
+                            <div style={{color: '#42ff71'}}>for example, for the Raspberry Pi 3 you can either</div>
+                            <div style={{color: '#42ff71'}}>$ export MIX_TARGET=rpi3</div>
+                            <div style={{color: '#42ff71'}}>Or prefix `mix` commands like the following:</div>
+                            <div style={{color: '#42ff71'}}>$ MIX_TARGET=rpi3 mix firmware</div>
+                        </div>,
+                        "export MIX_TARGET=rpi3"
+                    ]}
+                    />
                 </Slide>
                 <Slide>
-                    <Heading># Wifi / Ethernet setup</Heading>
-                </Slide>
-                <Slide>
-                    <Heading># Prepare your app for your device (target)</Heading>
-                    <div>cd hello_nerves
-                        export MIX_TARGET=rpi3
-                        mix deps.get</div>
-                </Slide>
-                <Slide>
-                    <Heading># Build the firmware</Heading>
                     <div>mix firmware</div>
+                    <Terminal isMaximized title="Build and burn the firmware" output={[
+                        <div>
+                            <div style={{color: '#42ff71'}}>You should now pick a target. See <span style={{color: '#0084E7'}}><a href="https://hexdocs.pm/nerves/targets.html#content">https://hexdocs.pm/nerves/targets.html#content</a></span></div>
+                            <div style={{color: '#42ff71'}}>for supported targets. If your target is on the list, set `MIX_TARGET` to its tag name:</div>
+                            <div style={{color: '#42ff71'}}>for example, for the Raspberry Pi 3 you can either</div>
+                            <div style={{color: '#42ff71'}}>$ export MIX_TARGET=rpi3</div>
+                            <div style={{color: '#42ff71'}}>Or prefix `mix` commands like the following:</div>
+                            <div style={{color: '#42ff71'}}>$ MIX_TARGET=rpi3 mix firmware</div>
+                        </div>,
+                        "export MIX_TARGET=rpi3"
+                    ]}
+                    />
                 </Slide>
                 <Slide>
                     <Heading># Burn the firmware to your SD card</Heading>
@@ -341,10 +391,6 @@ export default class BreakingIntoNerves extends Component {
                 <Slide>
                     <Heading># Check to make sure you're connected</Heading>
                     <div>ping nerves.local</div>
-                </Slide>
-                <Slide>
-                    <Heading># SSH into your device (target)</Heading>
-                    <div>ssh pi@nerves.local</div>
                 </Slide>
                 <Slide>
                     <Heading># We're in!</Heading>
