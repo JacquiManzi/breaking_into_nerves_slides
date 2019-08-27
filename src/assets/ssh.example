@@ -9,12 +9,6 @@ defmodule MuxWeb.Presence do
 
 
 
-
-
-
-
-
-
 # Authorize the device to receive firmware using your public key.
 # See https://hexdocs.pm/nerves_firmware_ssh/readme.html for more information
 # on configuring nerves_firmware_ssh.
@@ -36,6 +30,19 @@ if keys == [],
 
 config :nerves_firmware_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
+
+
+config :nerves_init_gadget,
+  ifname: "eth0",
+  address_method: :dhcp,
+  mdns_domain: "nerves.local",
+  node_name: "pi",
+  node_host: :mdns_domain
+
+
+
+
+
 
 
 

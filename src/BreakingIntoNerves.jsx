@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'react-emotion';
 
 import CodeSlide from 'spectacle-code-slide';
-import 'prismjs';
 
 import Deck from './components/deck';
 import Slide from './components/slide';
@@ -323,60 +322,37 @@ export default class BreakingIntoNerves extends Component {
                     ]}
                     />
                 </Slide>
-                <Slide style={{fontSize: '1.2em'}}>
-                    <Heading># Configure your target for SSH</Heading>
-                    <div>ssh pi@nerves.local</div>
-                    <CodeSlide
-                        bgColor="background"
-                        transition={[]}
-                        showLineNumbers={true}
-                        lang="elixir"
-                        code={require('raw-loader!./assets/ssh.example')}
-                        ranges={[
-                            { loc: [17, 43], title: 'config/target.exs - Load your SSH keys', note: '' }
-                        ]}
-                    />
-                </Slide>
-                <Slide style={{fontSize: '1.2em'}}>
-                    <Heading># Configure your target for SSH</Heading>
-                    <div>ssh pi@nerves.local</div>
-                    <CodeSlide
-                        bgColor="#2B2B2B"
-                        transition={[]}
-                        lang="elixir"
-                        code={require('raw-loader!./assets/ssh.example')}
-                        ranges={[
-                            { loc: [17, 43], title: 'config/target.exs - Load your SSH keys', note: '' }
-                        ]}
-                    />
-                </Slide>
-                <Slide>
-                    <Terminal isMaximized title="Prepare your app for your device" output={[
-                        "mix firmware",
-                        <div>
-                            <div style={{color: '#42ff71'}}>You should now pick a target. See <span style={{color: '#0084E7'}}><a href="https://hexdocs.pm/nerves/targets.html#content">https://hexdocs.pm/nerves/targets.html#content</a></span></div>
-                            <div style={{color: '#42ff71'}}>for supported targets. If your target is on the list, set `MIX_TARGET` to its tag name:</div>
-                            <div style={{color: '#42ff71'}}>for example, for the Raspberry Pi 3 you can either</div>
-                            <div style={{color: '#42ff71'}}>$ export MIX_TARGET=rpi3</div>
-                            <div style={{color: '#42ff71'}}>Or prefix `mix` commands like the following:</div>
-                            <div style={{color: '#42ff71'}}>$ MIX_TARGET=rpi3 mix firmware</div>
-                        </div>,
-                        "export MIX_TARGET=rpi3"
+                <CodeSlide
+                    bgColor="background"
+                    transition={[]}
+                    lang="elixir"
+                    code={require('raw-loader!./assets/ssh.example')}
+                    ranges={[
+                        { loc: [11, 33], title: 'config/target.exs - Load your SSH keys', note: '' },
+                        { loc: [34, 41], title: 'config/target.exs - Ethernet target config', note: '' }
                     ]}
-                    />
-                </Slide>
+                />
                 <Slide>
-                    <div>mix firmware</div>
-                    <Terminal isMaximized title="Build and burn the firmware" output={[
+                    <Terminal isMaximized title="Prepare your app for your target" output={[
+                        "export MIX_TARGET=rpi3 mix firmware",
                         <div>
-                            <div style={{color: '#42ff71'}}>You should now pick a target. See <span style={{color: '#0084E7'}}><a href="https://hexdocs.pm/nerves/targets.html#content">https://hexdocs.pm/nerves/targets.html#content</a></span></div>
-                            <div style={{color: '#42ff71'}}>for supported targets. If your target is on the list, set `MIX_TARGET` to its tag name:</div>
-                            <div style={{color: '#42ff71'}}>for example, for the Raspberry Pi 3 you can either</div>
-                            <div style={{color: '#42ff71'}}>$ export MIX_TARGET=rpi3</div>
-                            <div style={{color: '#42ff71'}}>Or prefix `mix` commands like the following:</div>
-                            <div style={{color: '#42ff71'}}>$ MIX_TARGET=rpi3 mix firmware</div>
+                        <div>Nerves environment</div>
+                            <div>MIX_TARGET:   rpi3</div>
+                            <div> MIX_ENV:      dev</div>
+                            <div></div>
+                            <div>==> nerves_system_br</div>
+                            <div>Generated nerves_system_br app</div>
+                            <div></div>
+                            <div>Nerves environment</div>
+                            <div>MIX_TARGET:   rpi3</div>
+                            <div>MIX_ENV:      dev</div>
+                            <div>(... lot's of building happening)</div>
+                            <div>|nerves_bootstrap| Building OTP Release...</div>
+                            <div>* creating _build/rpi3_dev/rel/hello_nerves/releases/0.1.0/vm.args</div>
+                            <div>Updating base firmware image with Erlang release...</div>
+                            <div>(... statics ...)</div>
+                            <div>Building /Users/YourUser/hello_nerves/_build/rpi3_dev/nerves/images/hello_nerves.fw...</div>
                         </div>,
-                        "export MIX_TARGET=rpi3"
                     ]}
                     />
                 </Slide>
