@@ -131,7 +131,7 @@ export default class BreakingIntoNerves extends Component {
                 <Slide
                     transitionIn={['slide', 'fade']}
                     transitionOut={['fade']}
-                    bgColor="primary"
+                    bgColor="#primary"
                 >
                     <Heading fit style={{fontWeight: '400'}}># <span style={{color: "ternary"}}>What's an embedded device?</span></Heading>
                     <br/>
@@ -139,14 +139,17 @@ export default class BreakingIntoNerves extends Component {
                         <List margin="2rem 5.5rem">
                             <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Specialized device for one or few specific purposes</Text></Layout>
                             <br/>
+                            <br />
                             <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources and Low power consumption</Text></Layout>
                             <br/>
+                            <br/>
                             <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size and rugged operating ranges</Text></Layout>
+                            <br/>
                             <br/>
                             <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">(Typically) low per-unit cost</Text></Layout>
                         </List>
                         <Layout>
-                            <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="120px" />
+                            <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="150px" />
                         </Layout>
                     </Layout>
                 </Slide>
@@ -213,21 +216,21 @@ export default class BreakingIntoNerves extends Component {
                     <Heading size={5}  margin="20px 0 0 120px" textColor="white" textAlign="left">Currently (listed) supported hardware</Heading>
                     <Layout style={{color: '#fff', fontSize: '0.8em', margin: '0 0 0 118px', lineHeight: '1.5'}}>
                         <List margin="2rem">
-                            <Appear><div style={{display: 'flex'}}><Text textColor="secondary" lineHeight="0.9" margin="0 20px 0 0">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi A+, B, B+</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text textColor="secondary" lineHeight="0.9" margin="0 20px 0 0">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi A+, B, B+</Text></div>
                             <br />
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textAlign="left" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi Zero and Zero W</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textAlign="left" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi Zero and Zero W</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 2</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 2</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 4 B</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 4 B</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">PocketBeagle</Text></div>
                             <br/>
-                            <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Generic x86_64</Text></div></Appear>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Generic x86_64</Text></div>
                         </List>
                     </Layout>
                 </Slide>
@@ -235,15 +238,11 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['fade']}
                     transitionOut={['fade']}
                 >
-                    <Heading size={2} style={{fontWeight: '400'}}># Standard Raspberry Pi </Heading>
-                    <Image margin="10rem auto" src={images.raspberrypi.replace('/', '')} width="600px" />
-                </Slide>
-                <Slide
-                    transitionIn={['fade']}
-                    transitionOut={['fade']}
-                >
-                    <Heading size={2} style={{fontWeight: '400'}}># Standard BeagleBone</Heading>
-                    <Image margin="10rem auto" src={images.beaglebone.replace('/', '')} width="600px" />
+                    <Heading size={2} style={{fontWeight: '400'}} fit># Raspberry Pi vs BeagleBone </Heading>
+                    <Layout>
+                        <Image margin="10rem auto" src={images.raspberrypi.replace('/', '')} width="600px" />
+                        <Image margin="10rem auto" src={images.beaglebone.replace('/', '')} width="600px" />
+                    </Layout>
                 </Slide>
                 <Slide
                     transitionIn={['fade']}
@@ -336,7 +335,7 @@ export default class BreakingIntoNerves extends Component {
                     <Terminal isMaximized title="Prepare your app for your target" output={[
                         "export MIX_TARGET=rpi3 mix firmware",
                         <div>
-                        <div>Nerves environment</div>
+                            <div>Nerves environment</div>
                             <div>MIX_TARGET:   rpi3</div>
                             <div> MIX_ENV:      dev</div>
                             <div></div>
