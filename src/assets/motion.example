@@ -1,0 +1,21 @@
+defmodule HelloNerves.Motion.Worker do
+
+  @impl true
+  def handle_cast(
+        {:detect_motion, image},
+        state = %{
+          count: previous_count
+        }
+      ) do
+    count = get_image_binary_sum(image)
+    percentage = previous_count * @motion_sensitivity
+
+    if count < previous_count - percentage or
+         count > previous_count + percentage do
+      Logger.info("Moving: #{count}")
+    end
+
+    {:noreply, %{state | count: count}}
+  end
+
+end
