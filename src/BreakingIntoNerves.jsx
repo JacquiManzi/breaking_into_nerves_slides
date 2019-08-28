@@ -637,14 +637,23 @@ export default class BreakingIntoNerves extends Component {
                 </Slide>
                 <Slide>
                     <Heading size={2} textAlign="left"># What's a NIF?</Heading>
-                    Native Implemented Functions
-                    A NIF is a function that is implemented in C instead of Erlang.
                     <br/>
                     <br/>
-                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports provide a mechanism to start operating system processes external to the Erlang VM and communicate with them via message passing.</Text>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>A NIF is a function that is implemented in C instead of Erlang.
+                        They are a simpler and more efficient way of calling C-code than using Ports. <span style={{color: "#a2b0ff"}}><i>But they're not safer.</i></span>
+                    </Text>
                 </Slide>
                 <Slide>
-                    <div>Nifs vs Ports</div>
+                    <Heading size={2} textAlign="left"># NIFs vs Ports</Heading>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports</Text>
+                    separate programs which are run separately from the Erlang VM
+                    The Erlang VM communicates with the running port over standard input/output
+                    if the port crashes, it doesn't bring down the whole Erlang VM.
+                    <br/>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>NIFs</Text>
+                    defined in what are essentially shared libraries / DLLs loaded by the Erlang VM
+                    NIFs are more efficient than ports (since they don't have to communicate over STDIN/STDOUT)
+                    a NIF can crash the Erlang VM, and a long-running NIF can potentially lock up the Erlang VM (since the scheduler can't reason about native code).
                 </Slide>
                 <Slide>
                     <div>Bloopers Section</div>
