@@ -10,40 +10,20 @@ import Link from './components/link';
 import Text from './components/text';
 import Notes from './components/notes';
 import Appear from './components/appear';
-import Anim from './components/anim';
-import BlockQuote from './components/block-quote';
-import Quote from './components/quote';
-import MarkdownSlides from './components/markdown-slides';
-import Markdown from './components/markdown';
 import Layout from './components/layout';
-import Table from './components/table';
-import TableHeader from './components/table-header';
-import TableBody from './components/table-body';
-import TableItem from './components/table-item';
-import TableHeaderItem from './components/table-header-item';
-import TableRow from './components/table-row';
 import ListItem from './components/list-item';
 import List from './components/list';
-import Fill from './components/fill';
-import SlideSet from './components/slide-set';
 import Image from './components/image';
-import CodePane from './components/code-pane';
-import ComponentPlayground from './components/component-playground';
-import GoToAction from './components/go-to-action';
-import Cite from './components/cite';
 
 
 import preloader from './utils/preloader';
 import createTheme from './themes/default';
-import Interactive from '../example/assets/interactive';
 import Terminal from "spectacle-terminal";
 
 require('prismjs/components/prism-markup-templating');
 require('prismjs/components/prism-elixir.js');
 require('./assets/prism-tomorrow.css');
 require('normalize.css');
-
-
 
 const images = {
     mux: require('./images/mux.png'),
@@ -64,6 +44,9 @@ const images = {
     beaglebone: require('./images/beaglebone.svg'),
     raspberrypiLogo: require('./images/Raspberry_Pi_Logo.png'),
     inception: require('./images/inception.png'),
+    game: require('./images/game.png'),
+    ffmpeg: require('./images/ffmpeg.png'),
+    target: require('./images/target.png')
 };
 
 preloader(images);
@@ -497,17 +480,15 @@ export default class BreakingIntoNerves extends Component {
                     <br/>
                     <Appear><Text fit textColor="ternary">What if I compare the previous frame to the current frame?</Text></Appear>
                 </Slide>
-                <Slide>
-                    <CodeSlide
-                        bgColor="background"
-                        transition={[]}
-                        lang="elixir"
-                        code={require('raw-loader!./assets/motion.example')}
-                        ranges={[
-                            { loc: [2, 19], title: 'Basic GenServer to detect motion', note: '' },
-                        ]}
-                    />
-                </Slide>
+                <CodeSlide
+                    bgColor="background"
+                    transition={[]}
+                    lang="elixir"
+                    code={require('raw-loader!./assets/motion.example')}
+                    ranges={[
+                        { loc: [2, 19], title: 'Basic GenServer to detect motion', note: '' },
+                    ]}
+                />
                 <Slide>
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Holy crap, I did not expect that to work</Text>
                 </Slide>
@@ -538,31 +519,64 @@ export default class BreakingIntoNerves extends Component {
                     </div>
                 </Slide>
                 <Slide>
-                    <Heading># FFMPEG... is that on this build?</Heading>
-                    <div>/usr/bin</div>
-                    <div>Yeah, no</div>
+                    <Text textColor="white" margin="0">FFMPEG... is that on this build?</Text>
+                    <br />
+                    <Terminal title="" output={[
+                        <div>
+                            <div style={{color: '#42ff71'}}>iex(pi@nerves.local)> System.find_executable("ffmpeg")</div>
+                        </div>,
+                        <div style={{color: '#a200ff'}}>nil</div>
+                    ]}
+                    />
+                    <br />
+                    <Appear><Text textColor="white" margin="0">Yeah, no.</Text></Appear>
                 </Slide>
                 <Slide>
-                    <Heading># Building a custom Nerves System</Heading>
-                    <div>You'll need Linux (or a VM for cross compilation)</div>
-                    <div>Steps code</div>
+                    <List>
+                        <Layout>
+                            <div>
+                                <Text margin="20px 5px" textAlign="left" textColor="white" style={{fontSize: '1.8em'}}>Building a custom Nerves system:</Text>
+                                <span style={{color: 'white', fontSize: '1em'}}><i>(from an existing one)</i></span>
+                                <br/>
+                                <List>
+                                    <br/>
+                                    <br/>
+                                    <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text textColor="ternary"  margin="0">Clone the existing nerves system branch your're using</Text></div></Appear>
+                                    <br/>
+                                    <br/>
+                                    <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text textColor="ternary"  margin="0">You'll need Docker running or be on a Linux environment</Text></div></Appear>
+                                    <br/>
+                                    <br/>
+                                    <Appear><div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text textColor="ternary"  margin="0">Pulling the initial image and building will take a while (~30 mins depending on your build and machine)</Text></div></Appear>
+                                </List>
+                                <br/>
+                                <br/>
+                                <Text textAlign="left" textColor="white" margin="0"><Link style={{color: '#975aee'}} href="https://hexdocs.pm/nerves/customizing-systems.html">https://hexdocs.pm/nerves/customizing-systems.html</Link></Text>
+                            </div>
+                        </Layout>
+                    </List>
                 </Slide>
                 <Slide>
-                    <Heading># Configuring your build</Heading>
-                    <div>Screenshots</div>
+                    <Image src={images.target.replace('/', '')} />
                 </Slide>
                 <Slide>
-                    <div>Show games section</div>
+                    <Image src={images.game.replace('/', '')} />
                 </Slide>
                 <Slide>
-                    <div>Export environment variables</div>
+                    <Image src={images.ffmpeg.replace('/', '')} />
                 </Slide>
                 <Slide>
-                    <div>Build, deploy, and ssh into your custom system</div>
-                </Slide>
-                <Slide>
-                    <div>Checkout the /usr/bin directory now</div>
-                    <div>show that ffmpeg is there</div>
+                    <Text textColor="white" margin="0">Ok, now is FFMPEG available?</Text>
+                    <br />
+                    <Terminal title="" output={[
+                        <div>
+                            <div style={{color: '#42ff71'}}>iex(pi@nerves.local)> System.find_executable("ffmpeg")</div>
+                        </div>,
+                        <div style={{color: '#a200ff'}}>"/usr/bin/ffmpeg"</div>
+                    ]}
+                    />
+                    <br />
+                    <Appear><Text textColor="white" margin="0">Yes! 😁</Text></Appear>
                 </Slide>
                 <Slide>
                     <div>Ok, now how do we actually interact with this in Elixir?</div>
