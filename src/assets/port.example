@@ -1,0 +1,52 @@
+defmodule HelloNerves.Motion.Worker do
+
+  defp spawn_rtmp_port() do
+    executable = System.find_executable("ffmpeg")
+
+    Port.open({:spawn_executable, executable}, [
+      :stderr_to_stdout,
+      :use_stdio,
+      :exit_status,
+      :binary,
+      {:args,
+       ["-f",
+         "video4linux2",
+         "-framerate",
+         "30",
+         "-input_format",
+         "nv12",
+         "-video_size",
+         "640x480",
+         "-i",
+         "/dev/video0",
+         "-b:a",
+         "64k",
+         "-c:v",
+         "libx264",
+         "-preset",
+         "ultrafast",
+         "-pix_fmt",
+         "yuv420p",
+         "-b:v",
+         "3000k",
+         "-g",
+         "50",
+         "-refs",
+         "3",
+         "-bf",
+         "0",
+         "-an",
+         "-f",
+         "flv",
+         "#{Application.get_env(:mux, :stream_url)}/#{Application.get_env(:mux, :stream_key)}"
+       ]}
+    ])
+  end
+
+
+
+
+
+
+
+end

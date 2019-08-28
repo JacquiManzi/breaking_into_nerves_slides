@@ -1,0 +1,78 @@
+defmodule HelloNerves.Motion.Worker do
+
+  @impl true
+  def handle_info(
+        :allow_streaming,
+        state
+      ) do
+    Logger.info("Enabling streaming")
+
+    {:noreply, %{state | stream_allowed: true}}
+  end
+
+
+  @impl true
+  def handle_cast(
+        {:detect_motion, image},
+        state = %{
+          count: previous_count,
+          stream_allowed: stream_allowed
+        }
+      ) do
+    count = get_image_binary_sum(image)
+    percentage = previous_count * @motion_sensitivity
+
+    if count < previous_count - percentage or
+         count > previous_count + percentage do
+      Logger.info("Moving: #{count}")
+
+      if stream_allowed, do: kill_picam()
+    end
+
+    {:noreply, %{state | count: count}}
+  end
+
+
+  defp kill_picam() do
+    pid = Process.whereis(Picam.Camera)
+
+    %{
+      port: port,
+      requests: _requests,
+      offline: _offline,
+      offline_image: _offline_image,
+      port_restart_interval: _port_restart_interval
+    } = :sys.get_state(pid)
+
+    with {:os_pid, port_pid} <- Port.info(port, :os_pid) do
+      System.cmd("kill", ["-KILL", "#{port_pid}"])
+      Process.send_after(self(), :spawn_rtmp_port, 1000)
+    else
+      e ->
+        Logger.debug(inspect(e))
+        Logger.info("Could not kill picam process")
+    end
+  end
+
+
+  @impl true
+  def handle_info(
+        :spawn_rtmp_port,
+        state
+      ) do
+    Logger.info("attempting to open rtmp port")
+
+    with {target_number, owned_number, body} <-
+           {Application.get_env(:ex_twilio, :phone_number),
+            Application.get_env(:ex_twilio, :twilio_number),
+            "Movement was detected and your stream has started"},
+         {:ok, _} <-
+           ExTwilio.Message.create(to: target_number, from: owned_num, body: body) do
+      rtmp_port = spawn_rtmp_port()
+      {:noreply, %{state | port: rtmp_port, stream_allowed: false}}
+    else
+      _ -> {:noreply, state}
+    end
+  end
+
+end

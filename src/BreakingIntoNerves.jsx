@@ -579,44 +579,76 @@ export default class BreakingIntoNerves extends Component {
                     <Appear><Text textColor="white" margin="0">Yes! 😁</Text></Appear>
                 </Slide>
                 <Slide>
-                    <div>Ok, now how do we actually interact with this in Elixir?</div>
-                    <div>Let's look at the elixir vision project and see what they do</div>
-                    <div>They're using Ports!</div>
+                    <Text lineHeight={1.5} style={{fontSize: "1.4em"}} textColor="white">Ok, now how do we use this in Elixir?</Text>
+                    <br/>
+                    <Appear><Text lineHeight={1.5} style={{fontSize: "1.4em"}} textColor="white">Let's look at elixir-vision and see what they do</Text></Appear>
+                    <br/>
+                    <Appear><Text lineHeight={1.5} style={{fontSize: "1.4em"}} textColor="ternary">They're using Ports!</Text></Appear>
                 </Slide>
                 <Slide>
-                    <div>Adding live streaming code to the GenServer with a port</div>
+                    <Heading size={2} textAlign="left"># What's a Port?</Heading>
+                    <br/>
+                    <br/>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports provide a mechanism to start operating system processes external to the Erlang VM and communicate with them via message passing.</Text>
+                </Slide>
+                <div style={{fontSize: "0.7em"}}>
+                    <CodeSlide
+                        bgColor="background"
+                        transition={[]}
+                        lang="elixir"
+                        code={require('raw-loader!./assets/port.example')}
+                        ranges={[
+                            { loc: [2, 46], title: 'Spawn a port to start an ffmpeg stream', note: '' },
+                        ]}
+                    />
+                </div>
+                <CodeSlide
+                    bgColor="background"
+                    transition={[]}
+                    lang="elixir"
+                    code={require('raw-loader!./assets/enabling.example')}
+                    ranges={[
+                        { loc: [2, 12], title: 'Enable live-streaming in our GenServer', note: '' },
+                        { loc: [13, 34], title: 'Trigger on motion detection', note: '' },
+                        { loc: [35, 56], title: 'Kill the Picam port', note: '' },
+                        { loc: [57, 76], title: 'Spawn an FFMPEG port and send a text message', note: '' },
+                    ]}
+                />
+                <Slide>
+                    <Text textColor="white" margin="0">Let's try it out</Text>
+                    <br />
+                    <Terminal title="" output={[
+                        <div style={{color: '#42ff71'}}>iex(pi@nerves.local)> pid = Process.whereis(MotionDetectionWorker)</div>,
+                        <div style={{color: '#42ff71'}}>iex(pi@nerves.local)> Process.send(pid, :allow_streaming, [])</div>,
+                        <div>
+
+                            <div style={{color: '#05b7ff'}}>:ok</div>
+                            <br/>
+                            <div style={{color: '#42ff71'}}>20:36:16.325 [info]  Enabling streaming</div>
+                        </div>,
+                        <div>
+                            <div style={{color: '#42ff71'}}>20:36:20.018 [info]  Moving: 6569461</div>
+                            <div style={{color: '#42ff71'}}>20:36:21.026 [info]  attempting to open rtmp port</div>
+                        </div>
+                    ]}
+                    />
+                    <br />
+                    <Appear><Text textColor="white" margin="0">I got a text message and I can see my live-stream!</Text></Appear>
                 </Slide>
                 <Slide>
-                    <div>Adding Twilio text message alert</div>
-                </Slide>
-                <Slide>
-                    <div>Adding in a flag to enable it</div>
-                </Slide>
-                <Slide>
-                    <div>SSH in and enable it with message passing to the process</div>
-                </Slide>
-                <Slide>
-                    <div>Try it out... and... errors!</div>
-                    <div>Ok, what is happening</div>
-                    <div>Oh, the elixir vision library is accessing the picam and one process can at a time</div>
-                </Slide>
-                <Slide>
-                    <div>Let's kill the Picam port!</div>
-                </Slide>
-                <Slide>
-                    <div>Show working stuff</div>
+                    <Heading size={2} textAlign="left"># What's a NIF?</Heading>
+                    Native Implemented Functions
+                    A NIF is a function that is implemented in C instead of Erlang.
+                    <br/>
+                    <br/>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports provide a mechanism to start operating system processes external to the Erlang VM and communicate with them via message passing.</Text>
                 </Slide>
                 <Slide>
                     <div>Nifs vs Ports</div>
                 </Slide>
                 <Slide>
-                    <div>What's a Nif?</div>
-                </Slide>
-                <Slide>
-                    <div>GenSevers and image writing to /tmp</div>
-                </Slide>
-                <Slide>
                     <div>Bloopers Section</div>
+                    <div>GenSevers and image writing to /tmp</div>
                 </Slide>
                 <Slide>
                     <div>Nerves resources Slack / team</div>
