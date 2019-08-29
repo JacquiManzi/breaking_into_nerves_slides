@@ -46,7 +46,8 @@ const images = {
     inception: require('./images/inception.png'),
     game: require('./images/game.png'),
     ffmpeg: require('./images/ffmpeg.png'),
-    target: require('./images/target.png')
+    target: require('./images/target.png'),
+    blooper1: require('./images/blooper1.png'),
 };
 
 preloader(images);
@@ -627,35 +628,40 @@ export default class BreakingIntoNerves extends Component {
                     <br />
                     <Appear><Text textColor="white" margin="0">I got a text message and I can see my live-stream!</Text></Appear>
                 </Slide>
+                {/*<Slide>*/}
+                {/*    <Heading size={2} textAlign="left"># What's a NIF?</Heading>*/}
+                {/*    <br/>*/}
+                {/*    <br/>*/}
+                {/*    <Text textColor="white" textAlign="left" lineHeight={1.5}>A NIF is a function that is implemented in C instead of Erlang.*/}
+                {/*        They are a simpler and more efficient way of calling C-code than using Ports. <span style={{color: "#a2b0ff"}}><i>But they're not safer.</i></span>*/}
+                {/*    </Text>*/}
+                {/*</Slide>*/}
+                {/*<Slide>*/}
+                {/*    <Heading size={2} textAlign="left"># NIFs vs Ports</Heading>*/}
+                {/*    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports</Text>*/}
+                {/*    separate programs which are run separately from the Erlang VM*/}
+                {/*    The Erlang VM communicates with the running port over standard input/output*/}
+                {/*    if the port crashes, it doesn't bring down the whole Erlang VM.*/}
+                {/*    <br/>*/}
+                {/*    <Text textColor="white" textAlign="left" lineHeight={1.5}>NIFs</Text>*/}
+                {/*    defined in what are essentially shared libraries / DLLs loaded by the Erlang VM*/}
+                {/*    NIFs are more efficient than ports (since they don't have to communicate over STDIN/STDOUT)*/}
+                {/*    a NIF can crash the Erlang VM, and a long-running NIF can potentially lock up the Erlang VM (since the scheduler can't reason about native code).*/}
+                {/*</Slide>*/}
                 <Slide>
-                    <Heading size={2} textAlign="left"># What's a NIF?</Heading>
+                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Mistakes were made</Text>
+                    <Image src={images.blooper1.replace('/', '')} />
+                </Slide>
+                <Slide transition={['fade']}>
+                    <Heading size={1} textColor="white">Thanks!</Heading>
                     <br/>
-                    <br/>
-                    <Text textColor="white" textAlign="left" lineHeight={1.5}>A NIF is a function that is implemented in C instead of Erlang.
-                        They are a simpler and more efficient way of calling C-code than using Ports. <span style={{color: "#a2b0ff"}}><i>But they're not safer.</i></span>
+                    <Text textColor="ternary" textAlign="left" lineHeight={1.5}>
+                        Come find me if you want to chat more about Elixir/video games/anything at all
                     </Text>
-                </Slide>
-                <Slide>
-                    <Heading size={2} textAlign="left"># NIFs vs Ports</Heading>
-                    <Text textColor="white" textAlign="left" lineHeight={1.5}>Ports</Text>
-                    separate programs which are run separately from the Erlang VM
-                    The Erlang VM communicates with the running port over standard input/output
-                    if the port crashes, it doesn't bring down the whole Erlang VM.
                     <br/>
-                    <Text textColor="white" textAlign="left" lineHeight={1.5}>NIFs</Text>
-                    defined in what are essentially shared libraries / DLLs loaded by the Erlang VM
-                    NIFs are more efficient than ports (since they don't have to communicate over STDIN/STDOUT)
-                    a NIF can crash the Erlang VM, and a long-running NIF can potentially lock up the Erlang VM (since the scheduler can't reason about native code).
-                </Slide>
-                <Slide>
-                    <div>Bloopers Section</div>
-                    <div>GenSevers and image writing to /tmp</div>
-                </Slide>
-                <Slide>
-                    <div>Nerves resources Slack / team</div>
-                </Slide>
-                <Slide>
-                    <div>Closing slide with twitter handle</div>
+                    <Text textColor="ternary" textAlign="left" lineHeight={1.5}>Oh and be sure to check out the Nerves channel in the Elixir Slack- they are extremely helpful and nice!</Text>
+                    <br/>
+                    <Text textColor="secondary" textAlign="left" lineHeight={1.5}>twitter: @cryptopattern <span style={{color: 'white'}}>(2011 me thought that was a great handle)</span></Text>
                 </Slide>
             </Deck>
         );
