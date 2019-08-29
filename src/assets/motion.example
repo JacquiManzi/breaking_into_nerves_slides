@@ -7,7 +7,7 @@ defmodule HelloNerves.Motion.Worker do
           count: previous_count
         }
       ) do
-    count = get_image_binary_sum(image)
+    count = image |> :binary.bin_to_list() |> Enum.sum()
     percentage = previous_count * @motion_sensitivity
 
     if count < previous_count - percentage or

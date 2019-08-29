@@ -112,31 +112,6 @@ export default class BreakingIntoNerves extends Component {
                     <Heading size={4} lineHeight="1.5" textColor="#42ff71" bgColor="#00000078">Elixir <span style={{color: 'white'}}>/</span> JavaScript <span style={{color: 'white'}}>/</span> Web</Heading>
                     <Image margin="-6.5rem auto" src={images.mux.replace('/', '')} width="600px" />
                 </Slide>
-                {/*<Slide*/}
-                {/*    transitionIn={['slide', 'fade']}*/}
-                {/*    transitionOut={['fade']}*/}
-                {/*    bgColor="#primary"*/}
-                {/*>*/}
-                {/*    <Heading fit style={{fontWeight: '400'}}># <span style={{color: "ternary"}}>What's an embedded device?</span></Heading>*/}
-                {/*    <br/>*/}
-                {/*    <Layout>*/}
-                {/*        <List margin="2rem 0">*/}
-                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Specialized device for one or few specific purposes</Text></Layout>*/}
-                {/*            <br/>*/}
-                {/*            <br />*/}
-                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources and Low power consumption</Text></Layout>*/}
-                {/*            <br/>*/}
-                {/*            <br/>*/}
-                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size and rugged operating ranges</Text></Layout>*/}
-                {/*            <br/>*/}
-                {/*            <br/>*/}
-                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">(Typically) low per-unit cost</Text></Layout>*/}
-                {/*        </List>*/}
-                {/*        <Layout>*/}
-                {/*            <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="180px" />*/}
-                {/*        </Layout>*/}
-                {/*    </Layout>*/}
-                {/*</Slide>*/}
                 <Slide
                     transitionIn={['slide', 'fade']}
                     transitionOut={['fade']}
@@ -180,7 +155,7 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['fade']}
                     transitionOut={['fade']}
                 >
-                    <Text textColor="white">Cool, so I can write embedded software in Elixir?</Text>
+                    <Text textColor="white">Cool, so I can write Elixir for embedded devices?</Text>
                     <br/>
                     <Appear><Heading textColor="white">Yes!</Heading></Appear>
                 </Slide>
@@ -424,18 +399,27 @@ export default class BreakingIntoNerves extends Component {
                     ]}
                     />
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">We're in!</Text>
                     <br/>
                     <Appear><Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Let's take a look around</Text></Appear>
                     <br />
                     <Appear><Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Oooh what's this <span style={{color: "#a2b0ff"}}>Toolshed</span> thing</Text></Appear>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Ok cool, let's do something useful</Text>
                     <Appear><Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">...like build a security camera!</Text></Appear>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Are there any Elixir libraries for the Picam?</Text>
                     <Appear>
                         <div>
@@ -445,14 +429,20 @@ export default class BreakingIntoNerves extends Component {
                         </div>
                     </Appear>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Layout style={{flexDirection: 'column', margin: '50px 0 0 0', alignItems: 'center'}}>
                         <Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="white">Let's implement the example HTTP project</Text>
                         <br/>
                         <Image src={images.inception.replace('/', '')} width="700px" />
                     </Layout>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="white">Well that's pretty neat.</Text>
                     <Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="white">Can I use this for basic motion detection?</Text>
                     <br/>
@@ -467,15 +457,24 @@ export default class BreakingIntoNerves extends Component {
                         { loc: [2, 19], title: 'Basic GenServer to detect motion', note: '' },
                     ]}
                 />
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Holy crap, I did not expect that to work</Text>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="white">It would be cool if I could start streaming video to the cloud when motion is detected</Text>
                     <br/>
                     <Appear><Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="ternary">Can I do that with this constant stream of jpegs?</Text></Appear>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <div style={{textAlign: 'left'}}>
                         <Text textColor="ternary" margin="0">Me:</Text>
                         <Text textColor="white">Hey guys, can I live-stream a bunch of jpegs?</Text>
@@ -496,7 +495,10 @@ export default class BreakingIntoNerves extends Component {
                         </Appear>
                     </div>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text textColor="white" margin="0">FFMPEG... is that on this build?</Text>
                     <br />
                     <Terminal title="" output={[
@@ -509,7 +511,10 @@ export default class BreakingIntoNerves extends Component {
                     <br />
                     <Appear><Text textColor="white" margin="0">Yeah, no.</Text></Appear>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['slide', 'fade']}
+                    transitionOut={['fade']}
+                >
                     <List>
                         <Layout>
                             <div>
@@ -534,13 +539,22 @@ export default class BreakingIntoNerves extends Component {
                         </Layout>
                     </List>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Image src={images.target.replace('/', '')} />
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Image src={images.game.replace('/', '')} />
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Image src={images.ffmpeg.replace('/', '')} />
                 </Slide>
                 <Slide>
