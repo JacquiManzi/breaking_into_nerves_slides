@@ -112,31 +112,31 @@ export default class BreakingIntoNerves extends Component {
                     <Heading size={4} lineHeight="1.5" textColor="#42ff71" bgColor="#00000078">Elixir <span style={{color: 'white'}}>/</span> JavaScript <span style={{color: 'white'}}>/</span> Web</Heading>
                     <Image margin="-6.5rem auto" src={images.mux.replace('/', '')} width="600px" />
                 </Slide>
-                <Slide
-                    transitionIn={['slide', 'fade']}
-                    transitionOut={['fade']}
-                    bgColor="#primary"
-                >
-                    <Heading fit style={{fontWeight: '400'}}># <span style={{color: "ternary"}}>What's an embedded device?</span></Heading>
-                    <br/>
-                    <Layout>
-                        <List margin="2rem 0">
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Specialized device for one or few specific purposes</Text></Layout>
-                            <br/>
-                            <br />
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources and Low power consumption</Text></Layout>
-                            <br/>
-                            <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size and rugged operating ranges</Text></Layout>
-                            <br/>
-                            <br/>
-                            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">(Typically) low per-unit cost</Text></Layout>
-                        </List>
-                        <Layout>
-                            <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="180px" />
-                        </Layout>
-                    </Layout>
-                </Slide>
+                {/*<Slide*/}
+                {/*    transitionIn={['slide', 'fade']}*/}
+                {/*    transitionOut={['fade']}*/}
+                {/*    bgColor="#primary"*/}
+                {/*>*/}
+                {/*    <Heading fit style={{fontWeight: '400'}}># <span style={{color: "ternary"}}>What's an embedded device?</span></Heading>*/}
+                {/*    <br/>*/}
+                {/*    <Layout>*/}
+                {/*        <List margin="2rem 0">*/}
+                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Specialized device for one or few specific purposes</Text></Layout>*/}
+                {/*            <br/>*/}
+                {/*            <br />*/}
+                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Limited resources and Low power consumption</Text></Layout>*/}
+                {/*            <br/>*/}
+                {/*            <br/>*/}
+                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">Small size and rugged operating ranges</Text></Layout>*/}
+                {/*            <br/>*/}
+                {/*            <br/>*/}
+                {/*            <Layout>{"::"}<Text textAlign="left" textColor="white" margin="-2px 20px">(Typically) low per-unit cost</Text></Layout>*/}
+                {/*        </List>*/}
+                {/*        <Layout>*/}
+                {/*            <Image margin="10rem 0" src={images.smartWatch.replace('/', '')} width="180px" />*/}
+                {/*        </Layout>*/}
+                {/*    </Layout>*/}
+                {/*</Slide>*/}
                 <Slide
                     transitionIn={['slide', 'fade']}
                     transitionOut={['fade']}
@@ -146,38 +146,32 @@ export default class BreakingIntoNerves extends Component {
                     <Layout>
                         <List margin="2rem 5.5rem">
                             <Layout>
-                                <Appear>
-                                    <div>
-                                        <Text textAlign="left" textColor="white" margin="-2px 20px">
-                                            Platform
-                                        </Text>
-                                        <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Customized, minimal Buildroot-derived Linux that boots directly to the BEAM VM.</Text>
-                                    </div>
-                                </Appear>
+                                <div>
+                                    <Text textAlign="left" textColor="white" margin="-2px 20px">
+                                        Platform
+                                    </Text>
+                                    <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Customized, minimal Buildroot-derived Linux that boots directly to the BEAM VM.</Text>
+                                </div>
                             </Layout>
                             <br/>
                             <br/>
                             <Layout>
-                                <Appear>
-                                    <div>
-                                        <Text textAlign="left" textColor="white" margin="-2px 20px">
-                                            Framework
-                                        </Text>
-                                        <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Ready-to-go library of Elixir modules to get you up and running quickly.</Text>
-                                    </div>
-                                </Appear>
+                                <div>
+                                    <Text textAlign="left" textColor="white" margin="-2px 20px">
+                                        Framework
+                                    </Text>
+                                    <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Ready-to-go library of Elixir modules to get you up and running quickly.</Text>
+                                </div>
                             </Layout>
                             <br/>
                             <br/>
                             <Layout>
-                                <Appear>
-                                    <div>
-                                        <Text textAlign="left" textColor="white" margin="-2px 20px">
-                                            Tooling
-                                        </Text>
-                                        <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Powerful command-line tools to manage builds, update firmware, configure devices, and more.</Text>
-                                    </div>
-                                </Appear>
+                                <div>
+                                    <Text textAlign="left" textColor="white" margin="-2px 20px">
+                                        Tooling
+                                    </Text>
+                                    <Text textAlign="left" style={{fontSize: "0.9em", marginTop: "30px"}} textColor="ternary" margin="-2px 20px">Powerful command-line tools to manage builds, update firmware, configure devices, and more.</Text>
+                                </div>
                             </Layout>
                         </List>
                     </Layout>
@@ -199,12 +193,15 @@ export default class BreakingIntoNerves extends Component {
                     <Image margin="10rem auto" src={images.camera.replace('/', '')} width="500x" />
                     <Layout> <Text textColor="white"><i>like a security camera</i></Text></Layout>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade', 'fade']}
+                    transitionOut={['slide', 'fade']}
+                >
                     <div>
-                        <Text style={{color: 'white', fontSize: "1.2em"}}>Because my neighborhood is <i style={{color: "#a2b0ff"}}>interesting</i></Text>
+                        <Text style={{color: 'white', fontSize: "1.4em"}}>Because my neighborhood is <i style={{color: "#a2b0ff"}}>interesting</i></Text>
                         <br />
                         <div style={{display: 'flex'}}>
-                            <Image src={images.citizen3.replace('/', '')} width="700" />
+                            <Image src={images.citizen3.replace('/', '')} width="750" />
                         </div>
                     </div>
                 </Slide>
@@ -212,7 +209,6 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['fade']}
                     transitionOut={['fade']}
                 >
-                    <Heading size={2} textAlign="left" lineHeight={1.5}># Choosing hardware</Heading>
                     <Heading size={5}  margin="20px 0 0 120px" textColor="white" textAlign="left">Currently (listed) supported hardware</Heading>
                     <Layout style={{color: '#fff', fontSize: '0.8em', margin: '0 0 0 118px', lineHeight: '1.5'}}>
                         <List margin="2rem">
@@ -224,7 +220,7 @@ export default class BreakingIntoNerves extends Component {
                             <br/>
                             <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 3 B, B+</Text></div>
                             <br/>
-                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 4 B</Text></div>
+                            <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">Raspberry Pi 4</Text></div>
                             <br/>
                             <div style={{display: 'flex'}}><Text margin="0 20px 0 0" textColor="secondary" lineHeight="0.9">::</Text><Text margin="0 0" textAlign="left" textColor="ternary">BeagleBone Black, Green, Green Wireless</Text></div>
                             <br/>
@@ -238,7 +234,7 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['fade']}
                     transitionOut={['fade']}
                 >
-                    <Heading size={2} style={{fontWeight: '400'}} fit># Raspberry Pi vs BeagleBone </Heading>
+                    <Text textColor="secondary" style={{fontWeight: '400', fontSize: '2em'}}>Raspberry Pi or BeagleBone? </Text>
                     <Layout>
                         <Image margin="10rem auto" src={images.raspberrypi.replace('/', '')} width="600px" />
                         <Image margin="10rem auto" src={images.beaglebone.replace('/', '')} width="600px" />
@@ -248,10 +244,11 @@ export default class BreakingIntoNerves extends Component {
                     transitionIn={['fade']}
                     transitionOut={['fade']}
                 >
-                    <Heading size={2} fit style={{fontWeight: '400'}}># Easiest Option = Raspberry Pi 3 B+</Heading>
+                    <Heading size={2} fit style={{fontWeight: '400'}}># Easiest Option = Raspberry Pi 3 B+ (or Raspberry Pi 4)</Heading>
                     <Layout style={{alignItems: 'center', justifyContent: 'space-evenly'}}>
                         <Image margin="10rem 0" src={images.raspberrypiLogo.replace('/', '')} width="300px" />
                         <div>
+                            <Text margin="20px 10px" textAlign="left" textColor="ternary">Raspberry Pi 3 B+:</Text>
                             <Text margin="20px 10px" textAlign="left" textColor="white"> 4 USB 2.0 ports</Text>
                             <Text margin="20px 10px" textAlign="left" textColor="white"> WIFI and Bluetooth</Text>
                             <Text margin="20px 10px" textAlign="left" textColor="white"> Ethernet port</Text>
@@ -279,8 +276,8 @@ export default class BreakingIntoNerves extends Component {
                     </Layout>
                 </Slide>
                 <Slide
-                    transitionIn={['fade']}
-                    transitionOut={['fade']}
+                    transitionIn={['slide', 'fade']}
+                    transitionOut={['fade', 'slide']}
                 >
                     <Heading fit size={2} style={{fontWeight: '400'}} lineHeight={1.2}># Install Nerves on your computer (host)</Heading>
                     <br/>
@@ -342,72 +339,53 @@ export default class BreakingIntoNerves extends Component {
                         { loc: [34, 41], title: 'config/target.exs - Ethernet target config', note: '' }
                     ]}
                 />
-                <Slide>
-                    <Terminal isMaximized title="Build your app for your target" output={[
-                        "export MIX_TARGET=rpi3 mix firmware",
+                <Slide
+                    transitionIn={['slide', 'fade']}
+                    transitionOut={['fade']}
+                >
+                    <Terminal isMaximized title="Build and burn the firmware to your SD card" output={[
+                        "export MIX_TARGET=rpi3 mix firmware.burn",
                         <div>
                             <div style={{color: '#42ff71'}}>Nerves environment</div>
                             <div style={{color: '#B9B80D'}}>MIX_TARGET:   rpi3</div>
                             <div style={{color: '#B9B80D'}}>MIX_ENV:      dev</div>
                         </div>,
                         <div>
-                            <div></div>
-                            <div style={{color: '#42ff71'}}>==> nerves_system_br</div>
-                            <div style={{color: '#42ff71'}}>Generated nerves_system_br app</div>
-                            <div></div>
-                        </div>,
-                        <div>
                             <br/>
                             <div style={{color: '#42ff71'}}>(... lot's of building happening)</div>
-                            <div style={{color: '#B9B80D'}}>|nerves_bootstrap| Building OTP Release...</div>
-                        </div>,
-                        <div>
-                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> _build/rpi3_dev/rel/hello_nerves/releases/0.1.0/vm.args</div>
-                            <div style={{color: '#42ff71'}}>Updating base firmware image with Erlang release...</div>
                         </div>,
                         <div>
                             <br/>
-                            <div style={{color: '#42ff71'}}>(... statistics info ...)</div>
                             <div style={{color: '#42ff71'}}>Building /Users/YourUser/hello_nerves/_build/rpi3_dev/nerves/images/hello_nerves.fw..</div>
+                            <div style={{color: '#42ff71'}}>Discovered devices:</div>
+                            <div style={{color: '#42ff71'}}>0) 29.72 GiB found at /dev/rdisk7</div>
+                            <div style={{color: '#42ff71'}}>Which device do you want to burn to? 0</div>
+                        </div>,
+                        <div>
+                            <div style={{color: '#42ff71'}}>|====================================| 100% (45.95 / 45.95) MB</div>
+                            <div style={{color: '#42ff71'}}>Success!</div>
+                            <div style={{color: '#42ff71'}}>Elapsed time: 3.036 s</div>
                         </div>
                     ]}
                     />
                 </Slide>
-                <Slide>
-                    <Terminal isMaximized title="Burn the firmware to your SD card" output={[
-                        "mix firmware.burn",
-                        <div>
-                            <div style={{color: '#42ff71'}}>Nerves environment</div>
-                            <div style={{color: '#B9B80D'}}>MIX_TARGET:   rpi3</div>
-                            <div style={{color: '#B9B80D'}}>MIX_ENV:      dev</div>
-                        </div>,
-                        <div>
-                            <div></div>
-                            <div style={{color: '#42ff71'}}>==> nerves_system_br</div>
-                            <div style={{color: '#42ff71'}}>Generated nerves_system_br app</div>
-                            <div></div>
-                        </div>,
-                        <div>
-                            <br/>
-                            <div style={{color: '#42ff71'}}>(... lot's of building happening)</div>
-                            <div style={{color: '#B9B80D'}}>|nerves_bootstrap| Building OTP Release...</div>
-                        </div>,
-                        <div>
-                            <div style={{color: '#42ff71'}}><span style={{color: '#B9B80D'}}>* creating</span> _build/rpi3_dev/rel/hello_nerves/releases/0.1.0/vm.args</div>
-                            <div style={{color: '#42ff71'}}>Updating base firmware image with Erlang release...</div>
-                        </div>,
-                        <div>
-                            <br/>
-                            <div style={{color: '#42ff71'}}>(... statics info ...)</div>
-                            <div style={{color: '#42ff71'}}>Building /Users/YourUser/hello_nerves/_build/rpi3_dev/nerves/images/hello_nerves.fw..</div>
-                        </div>
-                    ]}
-                    />
-                </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Wait, do I need to burn to my SD card every time I want to deploy new code?</Text>
                 </Slide>
-                <Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
+                    <Text lineHeight={1.5} style={{fontSize: "2em"}} textColor="white">Nope, just once!</Text>
+                    <Appear><Text lineHeight={1.5} style={{fontSize: "1.3em", textAlign: 'left'}} textColor="white">Then just type <span style={{color: "#a2b0ff", fontSize: "1em"}}>mix firmware.gen.script</span> to generate an upload script and <span style={{color: "#a2b0ff", fontSize: "1em"}}>mix firmware && ./upload.sh</span> to upload</Text></Appear>
+                </Slide>
+                <Slide
+                    transitionIn={['fade']}
+                    transitionOut={['fade']}
+                >
                     <Layout style={{justifyContent: "center"}}>
                         <List>
                             <Text lineHeight={1.5} style={{fontSize: "1.6em"}} textColor="white">Ok, now put the card in your device (target)</Text>
